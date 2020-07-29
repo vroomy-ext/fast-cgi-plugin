@@ -31,9 +31,9 @@ func Init(env map[string]string) (err error) {
 	return
 }
 
-// FastCGIHandler will handle FastCGI requests, it takes the following argument:
+// Handler will handle FastCGI requests, it takes the following argument:
 //	- filename (e.g. /var/www/html/index.php)
-func FastCGIHandler(args ...string) (h httpserve.Handler, err error) {
+func Handler(args ...string) (h httpserve.Handler, err error) {
 	var filename string
 	// Get the filename from the provided arguments
 	if filename, err = getFilename(args); err != nil {
