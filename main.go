@@ -27,7 +27,7 @@ func Init(env map[string]string) (err error) {
 	}
 
 	// Initialize connection factory for our FastCGI addresss
-	connFactory = gofast.SimpleConnFactory("tcp", address)
+	connFactory = gofast.SimpleConnFactory("unix", address)
 	return
 }
 
