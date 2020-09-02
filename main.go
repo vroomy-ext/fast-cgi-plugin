@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Hatch1fy/errors"
-	"github.com/Hatch1fy/httpserve"
+	"github.com/hatchify/errors"
+	"github.com/vroomy/common"
 	"github.com/yookoala/gofast"
 )
 
@@ -33,7 +33,7 @@ func Init(env map[string]string) (err error) {
 
 // Handler will handle FastCGI requests, it takes the following argument:
 //	- filename (e.g. /var/www/html/index.php)
-func Handler(args ...string) (h httpserve.Handler, err error) {
+func Handler(args ...string) (h common.Handler, err error) {
 	var filename string
 	// Get the filename from the provided arguments
 	if filename, err = getFilename(args); err != nil {
