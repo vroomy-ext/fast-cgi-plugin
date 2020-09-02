@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Hatch1fy/httpserve"
+	"github.com/vroomy/common"
 	"github.com/yookoala/gofast"
 )
 
@@ -20,11 +20,11 @@ func getFilename(args []string) (filename string, err error) {
 	return
 }
 
-func newHandler(handler gofast.Handler) httpserve.Handler {
+func newHandler(handler gofast.Handler) common.Handler {
 	// Wrap gofast.Handler with httpserve Handler
-	return func(ctx *httpserve.Context) (res httpserve.Response) {
+	return func(ctx common.Context) (res common.Response) {
 		// Call handler.ServeHTTP and pass it the writer and request
-		handler.ServeHTTP(ctx.Writer, ctx.Request)
+		handler.ServeHTTP(ctx.GetWriter(), ctx.GetRequest())
 		return
 	}
 }
